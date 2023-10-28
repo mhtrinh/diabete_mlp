@@ -19,8 +19,9 @@ sudo apt-get install python3-pip
 ```
 
 Install all needed python packages. Note: no `sudo`
-```
-pip3 install --user notebook==6.* pandas scikit-learn matplotlib`
+```bash
+# No sudo
+pip3 install --user notebook==6.* pandas scikit-learn matplotlib
 ```
 This will automatically install all the dependant packages (like rpm would do)
 
