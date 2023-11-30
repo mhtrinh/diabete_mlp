@@ -50,3 +50,52 @@ About Jupyter notebook: this allow you to run one set of code at the time. Each 
 
 In jupyter notebook, "Shift + Enter" to execute a cell
 
+# Setup as standalone python "app" with CLI
+This will install all dependencies and provide 2 CLI command:
+```
+$ trainDiabete --help
+usage: trainDiabete [-h] [--testSize TESTSIZE] [-q QUIET] [--layer LAYER] data output
+
+Train model using csv
+
+positional arguments:
+  data                  Csv file used to train the model. The last column is used as target.
+  output                Path to file to witch the model will be saved.
+
+options:
+  -h, --help            show this help message and exit
+  --testSize TESTSIZE   Ratio of data to be used as split. Default: 0.100000
+  -q QUIET, --quiet QUIET
+                        Quiet mode. Do not show stats. Default: False
+  --layer LAYER         Define the sizes of hidden layers of the MLP. Default: (10,10,10)
+```
+```
+$ inferenceDiabete --help
+usage: inferenceDiabete [-h] model input
+
+Run inference (aka prediction) from trained model
+
+positional arguments:
+  model       Path to trained model.
+  input       Path to the input csv to run prediction against. The csv can have one or more rows. The column
+              order must be the same as the one used to train the model (and excluding the last target column)
+
+options:
+  -h, --help  show this help message and exit
+```
+
+## Installation
+Same as above, the simpliest way in Windows is to have python3 in WSL:
+- Install WSL: https://learn.microsoft.com/en-us/windows/wsl/install
+- Install `python3-pip`:
+```
+sudo apt-get update
+sudo apt-get install python3-pip
+```
+
+Install the package straight from git:
+```
+pip3 install --user git+https://github.com/mhtrinh/diabete_mlp.git#egg=diabete
+```
+
+The command above will install `diabete` package (and all dependencies) and provide 2 CLI above `trainDiabete` and `inferenceDiabete`
