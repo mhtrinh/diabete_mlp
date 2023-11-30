@@ -5,7 +5,7 @@ import argparse
 from . import diabete
 
 def main():
-    parser = argparse.ArgumentParser("Train model using csv")
+    parser = argparse.ArgumentParser(description="Train model using csv")
     parser.add_argument("data",help="Csv file used to train the model. The last column is used as target.")
     parser.add_argument("output",help="Path to file to witch the model will be saved.")
     parser.add_argument("--testSize",default=0.1, help="Ratio of data to be used as split. Default: %(default)f")
